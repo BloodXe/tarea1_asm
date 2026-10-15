@@ -2,6 +2,8 @@
 
 https://github.com/BloodXe/tarea1_asm.git
 
+https://github.com/BloodXe/tarea1_asm/releases/tag/tarea1_prototipo
+
 
 ## Contenido
 
