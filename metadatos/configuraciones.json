@@ -1,0 +1,210 @@
+{
+  "comun": {
+    "fs": 8000,
+    "L": 16384,
+    "tipo_senal": "multitono",
+    "frecuencias_utiles_hz": [
+      500.0,
+      1200.0,
+      2000.0
+    ],
+    "amplitudes": [
+      1.0,
+      0.7,
+      0.5
+    ],
+    "fases_grados": [
+      0.0,
+      35.0,
+      -50.0
+    ],
+    "banda_util_hz": [
+      300.0,
+      2300.0
+    ],
+    "N_bloque": 512,
+    "pico_maximo": 0.8,
+    "fade_ms": 20,
+    "num_impulsos": 10
+  },
+  "casos": {
+    "caso_1": {
+      "descripcion": "Multitono + interferencia sinusoidal separada (3100 Hz)",
+      "seed": 101,
+      "tipo_ruido": "tonal",
+      "f_interferencia_hz": 3100.0,
+      "snr_objetivo_db": 5.0,
+      "snr_obtenida_float64_db": 5.000000000000012,
+      "snr_obtenida_wav_int16_db": 4.999889024502719,
+      "factor_escala_comun": 0.3013788633619657,
+      "fases_iniciales_rad": [
+        0.0,
+        0.6108652381980153,
+        -0.8726646259971648
+      ],
+      "archivos": {
+        "limpia": "pruebas/caso_1/01_referencia_limpia.wav",
+        "ruido": "pruebas/caso_1/02_ruido.wav",
+        "contaminada": "pruebas/caso_1/03_entrada_contaminada.wav"
+      }
+    },
+    "caso_2": {
+      "descripcion": "Multitono + ruido blanco gaussiano de banda completa",
+      "seed": 202,
+      "tipo_ruido": "blanco",
+      "snr_objetivo_db": 5.0,
+      "snr_obtenida_float64_db": 5.000000000000008,
+      "snr_obtenida_wav_int16_db": 4.999914977143359,
+      "factor_escala_comun": 0.2293483437747762,
+      "fases_iniciales_rad": [
+        0.0,
+        0.6108652381980153,
+        -0.8726646259971648
+      ],
+      "archivos": {
+        "limpia": "pruebas/caso_2/01_referencia_limpia.wav",
+        "ruido": "pruebas/caso_2/02_ruido.wav",
+        "contaminada": "pruebas/caso_2/03_entrada_contaminada.wav"
+      }
+    },
+    "caso_3": {
+      "descripcion": "Multitono + ruido de banda limitada (1800-2800 Hz) que se superpone con la componente de 2000 Hz",
+      "seed": 303,
+      "tipo_ruido": "banda",
+      "banda_ruido_hz": [
+        1800.0,
+        2800.0
+      ],
+      "snr_objetivo_db": 5.0,
+      "snr_obtenida_float64_db": 5.000000000000017,
+      "snr_obtenida_wav_int16_db": 4.999972695315458,
+      "factor_escala_comun": 0.20801606585609625,
+      "fases_iniciales_rad": [
+        0.0,
+        0.6108652381980153,
+        -0.8726646259971648
+      ],
+      "archivos": {
+        "limpia": "pruebas/caso_3/01_referencia_limpia.wav",
+        "ruido": "pruebas/caso_3/02_ruido.wav",
+        "contaminada": "pruebas/caso_3/03_entrada_contaminada.wav"
+      }
+    }
+  },
+  "filtro_fir": {
+    "tipo": "FIR pasa bajas, fase lineal tipo I, ventana Kaiser",
+    "fs_hz": 8000,
+    "banda_paso_hz": [
+      0,
+      2200.0
+    ],
+    "banda_rechazo_hz": [
+      2800.0,
+      4000.0
+    ],
+    "rizado_max_db": 0.02,
+    "atenuacion_min_db": 60.0,
+    "atenuacion_diseno_db": 62.0,
+    "numtaps": 53,
+    "orden": 52,
+    "beta_kaiser": 5.87366,
+    "fc_hz": 2500.0,
+    "retardo_grupo_muestras": 26,
+    "rizado_medido_db": 0.008012115601327929,
+    "atenuacion_medida_db": 61.83796190006291,
+    "coeficientes": [
+      0.0001444715601164586,
+      -0.0003463969592149855,
+      3.2751176823987232e-18,
+      0.0008452958395804177,
+      -0.0009266669599291925,
+      -0.0006924538606686931,
+      0.002428474963600361,
+      -0.0012191982376097159,
+      -0.0029007669978250825,
+      0.0048048931323963085,
+      -7.969923630789971e-18,
+      -0.007441865181528751,
+      0.006986005244259137,
+      0.004603237436361034,
+      -0.014562590817998903,
+      0.006720294397785275,
+      0.014944270042197037,
+      -0.023504634250792304,
+      1.880985098857646e-17,
+      0.03449840855383009,
+      -0.0324789056863529,
+      -0.022050826259822034,
+      0.07467376484844249,
+      -0.03918055005005858,
+      -0.11077261210957735,
+      0.29292343750634003,
+      0.6250098276929396,
+      0.29292343750634003,
+      -0.11077261210957735,
+      -0.03918055005005858,
+      0.07467376484844249,
+      -0.022050826259822034,
+      -0.0324789056863529,
+      0.03449840855383009,
+      1.880985098857646e-17,
+      -0.023504634250792304,
+      0.014944270042197037,
+      0.006720294397785275,
+      -0.014562590817998903,
+      0.004603237436361034,
+      0.006986005244259137,
+      -0.007441865181528751,
+      -7.969923630789971e-18,
+      0.0048048931323963085,
+      -0.0029007669978250825,
+      -0.0012191982376097159,
+      0.002428474963600361,
+      -0.0006924538606686931,
+      -0.0009266669599291925,
+      0.0008452958395804177,
+      3.2751176823987232e-18,
+      -0.0003463969592149855,
+      0.0001444715601164586
+    ],
+    "tolerancia_validacion": 1e-12
+  },
+  "filtrado_espectral": {
+    "N": 512,
+    "alpha": 4.0,
+    "tau": 0.3,
+    "ext": 2,
+    "prom": 6.0,
+    "w": 3,
+    "banda_util_hz": [
+      300.0,
+      2300.0
+    ],
+    "solapamiento": "50 % (salto N/2), ventana Hann periodica, suma por solapamiento"
+  },
+  "metricas": {
+    "recorte_extremos_muestras": 512,
+    "bandas_interferencia_hz": {
+      "caso_1": [
+        3050.0,
+        3150.0
+      ],
+      "caso_2": [
+        2300.0,
+        4000.0
+      ],
+      "caso_3": [
+        1800.0,
+        2800.0
+      ]
+    },
+    "energia_util_conservada": "100 * <s_hat, s> / <s, s>"
+  },
+  "hardware_supuesto": {
+    "mcu": "STM32F407 (Cortex-M4F, 168 MHz)",
+    "ciclos_por_operacion_supuestos": 3.0,
+    "formato_transporte": "int16 Q15",
+    "enlace": "UART 8N1",
+    "baudios_propuestos": 460800
+  }
+}
